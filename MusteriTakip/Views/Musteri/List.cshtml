@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MusteriTakip.Models.Musteri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>MÜŞTERİ LİSTESİ</h2>
+
+<p>
+    @Html.ActionLink("Yeni Müşteri Ekle", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MusteriNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TelNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bakiye)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MusteriNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TelNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adres)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bakiye)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }) |  @Html.ActionLink("Sipariş", "Create","Siparis", new { id = item.Id }, null)
+                </td>
+            </tr>
+        }
+    }
+
+</table>

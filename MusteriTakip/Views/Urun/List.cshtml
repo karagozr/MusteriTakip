@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MusteriTakip.Models.Urun>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>ÜRÜNLER LİSTESİ</h2>
+
+<p>
+    @Html.ActionLink("Yeni Ürün Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunKodu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunIsmi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StokMiktari)
+        </th>
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunKodu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunIsmi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fiyat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StokMiktari)
+                </td>
+                <td>
+                    @Html.ActionLink("Düzenle", "Edit", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    }
+
+
+</table>
